@@ -6,8 +6,6 @@ def index(request):
 
 def show(request, profile_id):
   profile = Profile()
+  profile = Profile.objects.get(id = profile_id)
 
-  if profile_id == '1':
-    profile = Profile('Thiago Moreira', 'thiago@gmail.com', '999999999', 'Empresa')
-    
-  return render(request, 'profile.html')
+  return render(request, 'profile.html', { 'profile' : profile })
