@@ -1,15 +1,15 @@
 from django.shortcuts import render
 from django.shortcuts import redirect
-from profiles.models import Profile
+from profiles.models import Profile, Invite
 
 def index(request):
-  return render(request, 'index.html', { 'profiles': Profile.objects.all() })
+  return render(request, 'index.html', { 'profiles': Profile.objects.all(), 'profile_logged_in': get_user_logged_in(request)})
 
 def show(request, profile_id):
   profile = Profile()
   profile = Profile.objects.get(id = profile_id)
 
-  return render(request, 'profile.html', { 'profile': profile })
+  return render(request, 'profile.html', { 'profile': profile, 'profile_logged_in': get_user_logged_in(request)})
 
 def invite(request, profile_id):
   profile_to_invite = Profile.objects.get(id = profile_id)

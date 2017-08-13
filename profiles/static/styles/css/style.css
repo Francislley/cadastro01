@@ -9,10 +9,12 @@
 }
 
 .profiles-list li {
-  padding-top: 6px;
+  padding-bottom: 20px;
 }
-.profiles-list li:first-of-type {
-  padding-top: 15px;
+
+.profiles-list {
+  padding-top: 10px;
+  margin-left: -10px;
 }
 
 .title-profile {
@@ -27,4 +29,25 @@
 
 .list-profile-info {
   margin-top: 20px;
+}
+
+.card-users {
+  margin-bottom: 40px;
+}
+
+.invites-list li {
+  padding-bottom: 25px;
+}
+
+.invites-list li:last-of-type {
+  padding-bottom: 0;
+}
+
+.invites-list li p {
+  display: inline;
+}
+
+.btn-invites a {
+  margin-top: -30px;
+  margin-left: 10px;
 }

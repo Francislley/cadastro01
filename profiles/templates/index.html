@@ -2,23 +2,54 @@
 {% block body %}
 
 <div class="col-lg-12 card-profile-list">
-  <div class="card">
-    <div class="card-header">
-      <h4>Lista de Usuários</h4>
+  <section>
+    <div class="card card-users">
+      <div class="card-header">
+        <h4>Lista de Usuários</h4>
+      </div>
+
+      <div class="card-body">
+        {% if profiles %} 
+        <ul class="profiles-list">
+          {% for profile in profiles %}
+          <li>
+            <a href="{% url 'show_profile' profile.id %}"><b>{{ profile.name }}</b>  - {{ profile.email }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+        {% else %}
+        <p>Nenhum perfil encontrado!</p>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="card">
+      <div class="card-header">
+        <h4>Lista de Convites</h4>
+      </div>
+
+      <div class="card-body invites-card">
+        {% if profile_logged_in.invitations_received.count %}
+          <ul class="invites-list">
+          {% for invite in profile_logged_in.invitations_received.all %}
+            <li>
+              <p><a href="{% url 'show_profile' invite.requester.id %}">{{ invite.requester.name }}</a></p>
+              <div class="btn-invites">
+                <a href="#" class="btn btn-success float-right">Aceitar</a>
+                <a href="#" class="btn btn-danger float-right">Rejeitar</a>
+              </div>
+            </li>
+            {% endfor %}
+          </ul>  
+        {% else %}
+        <p class="card-tex">Nenhum convite recebido :(</p>
+        {% endif %}
+      </div>
     </div>
 
-      {% if profiles %} 
-    <ul class="profiles-list">
-      {% for profile in profiles %}
-      <li>
-        <a href="{% url 'show_profile' profile.id %}"><b>{{ profile.name }}</b>  - {{ profile.email }}</a>
-      </li>
-      {% endfor %}
-    </ul>
-    {% else %}
-    <p>Nenhum perfil encontrado!</p>
-    {% endif %}
-  </div>
+  </section>
 </div>
 
 {% endblock %}

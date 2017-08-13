@@ -18,7 +18,7 @@
             <a class="nav-link" href="{% url 'index' %}">Início</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Perfil</a>
+            <a class="nav-link" href="{% url 'show_profile' profile_logged_in.id %}">Perfil</a>
           </li>
           <li class="nav-item">
               <a class="nav-link" href="/logout">Logout</a>
@@ -31,5 +31,6 @@
       {% block body %}
       {% endblock %}
     </div>
+    <script src="{% static 'styles/js/bootstrap.min.css' %}"></script>
   </body>
 </html>
