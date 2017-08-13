@@ -8,8 +8,9 @@ def index(request):
 def show(request, profile_id):
   profile = Profile()
   profile = Profile.objects.get(id = profile_id)
-
-  return render(request, 'profile.html', { 'profile': profile, 'profile_logged_in': get_user_logged_in(request)})
+  profile_logged_in = get_user_logged_in(request)
+  already_contact = profile in profile_logged_in.contacts.all()
+  return render(request, 'profile.html', { 'profile': profile, 'profile_logged_in': get_user_logged_in(request), 'already_contact': already_contact })
 
 def invite(request, profile_id):
   profile_to_invite = Profile.objects.get(id = profile_id)
