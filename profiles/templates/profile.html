@@ -1,14 +1,15 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <title>Connected In - Perfil {{ profile.name }}</title>
-</head>
-<body>
-  <h1>Detalhe Perfil: {{ profile.name }}</h1>
-  <a class="btn btn-primary" href="{% url 'invite' profile.id %}">Convidar</a>
+{% extends 'base.html' %}
+{% block body %}
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
-</body>
-</html>
+<div class="col-lg-12">
+  <h1 class="title-profile">{{ profile.name }}</h1>
+  <a class="btn btn-primary btn-invite" href="{% url 'invite' profile.id %}">Convidar</a>
+  
+  <ul class="list-group col-lg-5 list-profile-info">
+    <li class="list-group-item"><b>Empresa: </b>{{ profile.company_name }}</li>
+    <li class="list-group-item"><b>E-mail: </b>{{ profile.email }}</li>
+    <li class="list-group-item"><b>Telefone: </b>{{ profile.phone_number }}</li>
+  </ul>
+</div>
+
+{% endblock %}

@@ -1,3 +1,30 @@
 .card-profile-list {
+  margin-top: 40px;
+}
+
+.text-logo {
+  position: absolute;
+  left: 40px;
+  top: 16px;
+}
+
+.profiles-list li {
+  padding-top: 6px;
+}
+.profiles-list li:first-of-type {
+  padding-top: 15px;
+}
+
+.title-profile {
+  margin-top: 40px;
+  display: inline-block;
+  padding-right: 20px;
+}
+
+.btn-invite {
+  margin-top: -18px;
+}
+
+.list-profile-info {
   margin-top: 20px;
 }

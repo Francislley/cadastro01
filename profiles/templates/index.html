@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block body %}
+
 <div class="col-lg-12 card-profile-list">
   <div class="card">
     <div class="card-header">
@@ -7,10 +8,10 @@
     </div>
 
       {% if profiles %} 
-    <ul>
+    <ul class="profiles-list">
       {% for profile in profiles %}
       <li>
-        <a href="{% url 'show_profile' profile.id %}"><b>{{ profile.id }}) {{ profile.name }}</b>  - {{ profile.email }}</a>
+        <a href="{% url 'show_profile' profile.id %}"><b>{{ profile.name }}</b>  - {{ profile.email }}</a>
       </li>
       {% endfor %}
     </ul>
@@ -19,4 +20,5 @@
     {% endif %}
   </div>
 </div>
+
 {% endblock %}
