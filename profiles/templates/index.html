@@ -26,26 +26,28 @@
 
   <section>
     <div class="card">
-      <div class="card-header">
-        <h4>Lista de Convites</h4>
-      </div>
+      {% with total_invites=profile_logged_in.invitations_received.count %}
+        {% if total_invites %}
+        <div class="card-header">
+          <h4>Você tem {{ total_invites }} convite{{ total_invites | pluralize }} aguardando aprovação</h4>
+        </div>
 
-      <div class="card-body invites-card">
-        {% if profile_logged_in.invitations_received.count %}
-          <ul class="invites-list">
-          {% for invite in profile_logged_in.invitations_received.all %}
-            <li>
-              <p><a href="{% url 'show_profile' invite.requester.id %}">{{ invite.requester.name }}</a></p>
-              <div class="btn-invites">
-                <a href="#" class="btn btn-success float-right">Aceitar</a>
-                <a href="#" class="btn btn-danger float-right">Rejeitar</a>
-              </div>
-            </li>
-            {% endfor %}
-          </ul>  
+        <div class="card-body invites-card">
+            <ul class="invites-list">
+            {% for invite in profile_logged_in.invitations_received.all %}
+              <li>
+                <p><a href="{% url 'show_profile' invite.requester.id %}">{{ invite.requester.name }}</a></p>
+                <div class="btn-invites">
+                  <a href="#" class="btn btn-success float-right">Aceitar</a>
+                  <a href="#" class="btn btn-danger float-right">Rejeitar</a>
+                </div>
+              </li>
+              {% endfor %}
+            </ul>  
         {% else %}
-        <p class="card-tex">Nenhum convite recebido :(</p>
+          <p class="card-tex">Nenhum convite recebido :(</p>
         {% endif %}
+      {% endwith %}
       </div>
     </div>
 
