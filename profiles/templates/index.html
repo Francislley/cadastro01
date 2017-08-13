@@ -1,14 +1,12 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-  <head>
-    <title>Connected In</title>
-    <meta charset="UTF-8">
-  </head>
-  <body class="container-fluid">
-    <h1>Bem Vindo ao Connected In</h1>
+{% extends 'base.html' %}
+{% block body %}
+<div class="col-lg-12 card-profile-list">
+  <div class="card">
+    <div class="card-header">
+      <h4>Lista de Usuários</h4>
+    </div>
 
-    <h2>Lista de Usuários</h1>
-     {% if profiles %} 
+      {% if profiles %} 
     <ul>
       {% for profile in profiles %}
       <li>
@@ -19,8 +17,6 @@
     {% else %}
     <p>Nenhum perfil encontrado!</p>
     {% endif %}
-  
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
-  </body>
-</html>
+  </div>
+</div>
+{% endblock %}

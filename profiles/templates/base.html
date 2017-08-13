@@ -1,0 +1,32 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <title>Connected In</title>
+    <meta charset="UTF-8" name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="{% static 'styles/css/bootstrap-grid.min.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/css/bootstrap-reboot.min.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/css/style.css' %}">
+  </head>
+  <body class="">
+    <header class="card-header">
+      <ul class="nav nav-pills card-header-pills justify-content-end">
+        <li class="nav-item">
+          <a class="nav-link active" href="{% url 'index' %}">Início</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Perfil</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/logout">Logout</a>
+          </li>
+      </ul>
+    </header>
+
+    <div class="container mx-auto">
+      {% block body %}
+      {% endblock %}
+    </div>
+  </body>
+</html>
