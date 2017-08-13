@@ -17,6 +17,11 @@ def invite(request, profile_id):
   profile_logged_in.invite(profile_to_invite)
   return redirect('index')
 
+def accept(request, invite_id):
+  invite = Invite.objects.get(id=invite_id)
+  invite.accept()
+  return redirect('index')
+
 def get_user_logged_in(request):
   # Thiago always logged in, to test
   return Profile.objects.get(id = 1)
