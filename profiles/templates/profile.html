@@ -2,17 +2,13 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>Connected In</title>
+  <title>Connected In - Perfil {{ profile.name }}</title>
 </head>
 <body>
-  <h1>Detalhe Perfil</h1>
-  <h2>Nome:</h2>
-  <p>{{ profile.name }}</p>
-  <h2>E-mail</h2>
-  <p>{{ profile.email }}</p>
-  <h2>Telefone</h2>
-  <p>{{ profile.phone_number }}</p>
-  <h2>Empresa</h2>
-  <p>{{ profile.company_name }}</p>
+  <h1>Detalhe Perfil: {{ profile.name }}</h1>
+  <a class="btn btn-primary" href="{% url 'invite' profile.id %}">Convidar</a>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 </body>
 </html>
